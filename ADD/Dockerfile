@@ -3,5 +3,5 @@ ADD https://raw.githubusercontent.com/trussworks/terraform-aws-s3-private-bucket
 ADD apache-tomcat-9.0.73-embed.tar.gz /tmp/
 WORKDIR /app
 ADD foo.txt /app/
-ADD bar/ /app/
-# ADD [SOURCE] [DESTINATION]
+ADD bar/ /app/bar/
+# ADD [SOURCE] [DESTINATION
