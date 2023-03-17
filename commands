@@ -1,0 +1,26 @@
+docker run --entrypoint /bin/sh -itd mycontainer:latest
+
+CMD [while true; do sleep 1; done]
+
+Dockerfile Command to Keep the Container Running
+Here is a basic Dockerfile with an ENTRYPOINT that will keep on running without getting terminated.
+
+FROM ubuntu:latest
+
+ENTRYPOINT ["tail", "-f", "/dev/null"]
+Also, let’s look at another 3 methods to keep the container running with the docker run command.
+
+Method 1: You can use the -t (pseudo-tty) docker parameter to keep the container running.
+
+docker run -d -t ubuntu
+Method 2: You can run the container directly passing the tail command via arguments as shown below.
+
+ docker run -d ubuntu tail -f /dev/null
+Method 3: Another method is to execute a sleep command to infinity.
+
+docker run -d ubuntu sleep infinity
+Once you have the running container, you can attach the container to the terminal session using the exec parameter as shown below.
+
+0ab99d8ab11c is the container ID
+
+docker exec -it 0ab99d8ab11c /bin/bash
